@@ -67,14 +67,23 @@ function App() {
         <h4>{blogNm1[2]}</h4>
         <p>{a}월 17일 발행</p>
       </div>
-
-      <div className="modal">
-        <h4>제목</h4>
-        <p>날짜</p>
-        <p>상세내용</p>
-      </div>
+      <Modal />
     </div>
   );
 }
+
+// 컴포넌트 문법
+// 1. 반복적 html 축약할 때
+// 2. 큰 페이지들
+// 3. 자주 변경되는 것들
+const Modal = () => {
+  return (
+    <div className="modal">
+      <h4>제목</h4>
+      <p>날짜</p>
+      <p>상세내용</p>
+    </div>
+  );
+};
 
 export default App;
