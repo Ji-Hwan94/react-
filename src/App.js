@@ -1,5 +1,6 @@
 /*eslint-disable*/
 
+import { useDispatch, useSelector } from "react-redux";
 import "./App.css";
 import { useState } from "react";
 
@@ -17,6 +18,13 @@ function App() {
   // destructing 문법
   let num = [1, 2];
   let [a, c] = num; // let a = num[0]; let c = num[1]; 과 같은 문법
+
+  // redux 문법 (데이터를 어느 컴포넌트에서 꺼내서 사용하는 방법)
+  // 선언은 index.js에서 한다.
+  const reduxVal = useSelector((state) => state);
+
+  // 컴포넌트에서 state 수정을 요청하기 위해서 사용하기 위한 것
+  const dispatch = useDispatch();
 
   //--------------------------------문법 설명 end----------------------------------------------
 
@@ -66,6 +74,15 @@ function App() {
       <div className="list">
         <h4>{blogNm1[2]}</h4>
         <p>{a}월 17일 발행</p>
+      </div>
+      <div className="list">
+        <h4>Redux 문법을 사용하여 받은 데이터</h4>
+        <p>{reduxVal}</p>
+        <div>
+          <h4>dispatch를 사용해서 state의 값을 변화</h4>
+          <button onClick={() => dispatch({ type: "증가" })}>더하기</button>
+          <button onClick={() => dispatch({ type: "감소" })}>빼기</button>
+        </div>
       </div>
       <Modal />
     </div>
